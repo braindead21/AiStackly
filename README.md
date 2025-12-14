@@ -102,7 +102,7 @@ NEXTAUTH_SECRET=your_secret_here  # Generate with: openssl rand -base64 32
 NEXTAUTH_URL=http://localhost:3000
 
 # Required for auth features (MongoDB Atlas)
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority
 MONGODB_DB=aistackly
 ```
 
@@ -363,7 +363,7 @@ const newItem = await createItem({
 
 ```env
 GROQ_API_KEY=your_production_key
-MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/dbname
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority
 MONGODB_DB=aistackly
 ```
 

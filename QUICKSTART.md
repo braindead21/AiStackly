@@ -116,7 +116,7 @@ To persist data, add MongoDB:
 
 ```env
 # Add to .env.local
-MONGODB_URI=mongodb+srv://user:pass@cluster.mongodb.net/
+MONGODB_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/<database>?retryWrites=true&w=majority
 MONGODB_DB=aistackly
 ```
 
