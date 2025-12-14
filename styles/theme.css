@@ -1,0 +1,21 @@
+/* Brand palette and theme tokens */
+:root {
+  /* Brand colors */
+  --color-brand: #4f46e5; /* indigo-600 */
+  --color-brand-foreground: #ffffff;
+
+  /* App surfaces & text */
+  --color-background: #ffffff;
+  --color-foreground: #111827; /* gray-900 */
+  --color-muted: #6b7280; /* gray-500 */
+
+  /* Radius & shadow tokens */
+  --radius-md: 0.5rem;
+}
+
+/* Dark mode token overrides (activated by `.dark` class on html/body) */
+.dark {
+  --color-background: #0b1020;
+  --color-foreground: #e5e7eb; /* gray-200 */
+  --color-muted: #9ca3af; /* gray-400 */
+}

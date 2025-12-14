@@ -1,0 +1,22 @@
+/* Container layout: mobile-first with responsive padding */
+.container-base { 
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; 
+}
+
+/* Vertical stacks for consistent spacing */
+.stack-sm { @apply space-y-3 sm:space-y-4; }
+.stack { @apply space-y-6 sm:space-y-8; }
+.stack-lg { @apply space-y-8 sm:space-y-12; }
+
+/* Headings */
+.h1 { @apply text-3xl sm:text-4xl md:text-5xl font-bold; }
+.h2 { @apply text-2xl sm:text-3xl md:text-4xl font-semibold; }
+.muted { @apply text-gray-500 dark:text-gray-400; }
+
+/* Buttons using brand tokens */
+.btn { @apply inline-flex items-center justify-center rounded-lg font-medium transition; }
+.btn-primary { @apply inline-flex items-center justify-center rounded-lg font-medium transition bg-indigo-600 text-white px-4 py-2 hover:bg-indigo-700; }
+.btn-secondary { @apply inline-flex items-center justify-center rounded-lg font-medium transition bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-700; }
+
+/* Card surface utility */
+.card { @apply bg-white dark:bg-gray-800/50 shadow-sm rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 p-6; }
