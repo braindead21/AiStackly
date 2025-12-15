@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { tools, getAllCategories } from "@/config/tools";
 import { useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+import { useMemo, Suspense } from "react";
 import Navbar from "@/components/layout/Navbar";
 
-export default function ToolsPage() {
+function ToolsContent() {
   const categories = getAllCategories();
   const searchParams = useSearchParams();
   const searchQuery = searchParams.get("search") || "";
@@ -119,5 +119,17 @@ export default function ToolsPage() {
       </div>
       </div>
     </>
+  );
+}
+
+export default function ToolsPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-[#0a0e1a] via-[#0f1419] to-[#1a1f2e] flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
+      </div>
+    }>
+      <ToolsContent />
+    </Suspense>
   );
 }
