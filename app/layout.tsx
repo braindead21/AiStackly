@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import AuthProvider from "@/components/auth/AuthProvider";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import PageViewTracker from "@/components/PageViewTracker";
@@ -35,7 +36,9 @@ export default function RootLayout({ children }: any) {
     <html lang="en" className="dark">
       <body className="min-h-screen bg-gradient-to-br from-[#0a0e1a] via-[#0f1419] to-[#1a1f2e] text-gray-100 antialiased">
         <GoogleAnalytics />
-        <PageViewTracker />
+        <Suspense fallback={null}>
+          <PageViewTracker />
+        </Suspense>
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
