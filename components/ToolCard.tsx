@@ -1,5 +1,8 @@
+"use client";
+
 import * as React from "react";
 import Link from "next/link";
+import { trackToolClick } from "@/lib/analytics";
 
 interface ToolCardProps {
   name: string;
@@ -9,8 +12,12 @@ interface ToolCardProps {
 }
 
 export default function ToolCard({ name, description, category, link }: ToolCardProps) {
+  const handleClick = () => {
+    trackToolClick(link, name);
+  };
+
   return (
-    <Link href={link}>
+    <Link href={link} onClick={handleClick}>
       <div className="bg-white rounded-2xl shadow-md p-5 hover:shadow-lg transition-shadow cursor-pointer">
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-lg font-semibold text-gray-800">{name}</h3>

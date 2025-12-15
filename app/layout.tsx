@@ -1,6 +1,8 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import AuthProvider from "@/components/auth/AuthProvider";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import PageViewTracker from "@/components/PageViewTracker";
 
 export const metadata: Metadata = {
   title: {
@@ -32,6 +34,8 @@ export default function RootLayout({ children }: any) {
   return (
     <html lang="en" className="dark">
       <body className="min-h-screen bg-gradient-to-br from-[#0a0e1a] via-[#0f1419] to-[#1a1f2e] text-gray-100 antialiased">
+        <GoogleAnalytics />
+        <PageViewTracker />
         <AuthProvider>{children}</AuthProvider>
       </body>
     </html>

@@ -2,12 +2,14 @@
 
 import * as React from "react";
 import { useState } from "react";
+import { trackSearchTool } from "@/lib/analytics";
 
 export default function SearchInput() {
   const [query, setQuery] = useState<string>("");
 
   const handleSearch = () => {
     if (!query) return;
+    trackSearchTool(query);
     window.location.href = `/tools?search=${encodeURIComponent(query)}`;
   };
 
@@ -18,6 +20,7 @@ export default function SearchInput() {
         placeholder="Search AI Tools..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && handleSearch()}
         className="w-full max-w-xl px-6 py-3 border border-gray-300 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-indigo-600"
       />
       <button
