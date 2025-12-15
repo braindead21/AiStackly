@@ -1,6 +1,36 @@
 import { getToolConfig } from "@/config/tools";
+import { Metadata } from "next";
 import ToolForm from "@/components/tools/ToolForm";
 import Navbar from "@/components/layout/Navbar";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ tool: string }>;
+}): Promise<Metadata> {
+  const { tool: toolId } = await params;
+  const tool = getToolConfig(toolId);
+
+  if (!tool) {
+    return {
+      title: "Tool Not Found",
+    };
+  }
+
+  return {
+    title: tool.title,
+    description: tool.description,
+    alternates: {
+      canonical: `https://aistackly.vercel.app/tools/${toolId}`,
+    },
+    openGraph: {
+      title: tool.title,
+      description: tool.description,
+      url: `https://aistackly.vercel.app/tools/${toolId}`,
+      type: "website",
+    },
+  };
+}
 
 export default async function ToolPage({
   params,

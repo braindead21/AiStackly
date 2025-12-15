@@ -6,6 +6,7 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import PageViewTracker from "@/components/PageViewTracker";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://aistackly.vercel.app'),
   title: {
     default: "AI Stackly - Free AI Tools for Content & Productivity",
     template: "%s | AI Stackly"
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
+    url: "https://aistackly.vercel.app",
     siteName: "AI Stackly",
     title: "AI Stackly - Free AI Tools for Content & Productivity",
     description: "15+ free AI-powered tools for content creation, SEO, and productivity. No sign-up required.",
@@ -28,7 +30,10 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  }
+  },
+  alternates: {
+    canonical: "https://aistackly.vercel.app",
+  },
 };
 
 export default function RootLayout({ children }: any) {
