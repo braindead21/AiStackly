@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://aistackly.vercel.app",
   },
+  verification: {
+    google: "8VAS90FSL1lxsHtbmLwBRj_im3hSyxKTMLXVE1KoQMc",
+  },
 };
 
 export default function RootLayout({ children }: any) {
