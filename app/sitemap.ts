@@ -29,27 +29,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Static pages
-  const staticPages = [
-    {
-      url: `${baseUrl}/analytics`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/history`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/profile`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
-    },
-  ];
-
-  return [homepage, toolsPage, ...toolPages, ...staticPages];
+  return [homepage, toolsPage, ...toolPages];
 }
