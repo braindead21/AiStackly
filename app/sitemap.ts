@@ -1,33 +1,44 @@
 import { MetadataRoute } from 'next';
-import { tools } from '@/config/tools';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://aistackly.vercel.app';
-  const currentDate = new Date();
+  
+  // Static list of all tools - no dynamic imports or async operations
+  const toolIds = [
+    'instagram-caption-generator',
+    'youtube-title-generator',
+    'ai-image-describer',
+    'code-explainer',
+    'seo-meta-description-generator',
+    'article-outliner',
+    'product-description-generator',
+    'linkedin-post-generator',
+    'facebook-ads-copy-generator',
+  ];
 
-  // Homepage
-  const homepage = {
-    url: baseUrl,
-    lastModified: currentDate,
-    changeFrequency: 'daily' as const,
-    priority: 1.0,
-  };
+  const sitemap: MetadataRoute.Sitemap = [
+    // Homepage - highest priority
+    {
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 1.0,
+    },
+    // Tools index page
+    {
+      url: `${baseUrl}/tools`,
+      lastModified: new Date(),
+      changeFrequency: 'daily' as const,
+      priority: 0.9,
+    },
+    // Individual tool pages
+    ...toolIds.map((toolId) => ({
+      url: `${baseUrl}/tools/${toolId}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
+      priority: 0.8,
+    })),
+  ];
 
-  // Tools index page
-  const toolsPage = {
-    url: `${baseUrl}/tools`,
-    lastModified: currentDate,
-    changeFrequency: 'daily' as const,
-    priority: 0.9,
-  };
-
-  // Individual tool pages
-  const toolPages = tools.map((tool) => ({
-    url: `${baseUrl}/tools/${tool.id}`,
-    lastModified: currentDate,
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
-
-  return [homepage, toolsPage, ...toolPages];
+  return sitemap;
 }
