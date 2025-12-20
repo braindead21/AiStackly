@@ -7,6 +7,11 @@ export type ToolConfig = {
   buttonText: string;
   category?: string;
   modelType?: "text" | "vision";
+  acceptsFiles?: {
+    images?: boolean;
+    documents?: boolean;
+    text?: boolean;
+  };
 };
 
 export const tools: ToolConfig[] = [
@@ -18,7 +23,12 @@ export const tools: ToolConfig[] = [
     placeholder: "Describe your photo...",
     buttonText: "Generate Caption",
     category: "Social Media",
-    modelType: "text"
+    modelType: "text",
+    acceptsFiles: {
+      images: true,
+      documents: false,
+      text: false
+    }
   },
   {
     id: "youtube-title-generator",
@@ -28,7 +38,12 @@ export const tools: ToolConfig[] = [
     placeholder: "Describe your video...",
     buttonText: "Generate Title",
     category: "Social Media",
-    modelType: "text"
+    modelType: "text",
+    acceptsFiles: {
+      images: true,
+      documents: true,
+      text: true
+    }
   },
   {
     id: "ai-image-describer",
@@ -38,7 +53,12 @@ export const tools: ToolConfig[] = [
     placeholder: "Paste image URL or upload an image...",
     buttonText: "Analyze Image",
     category: "AI Vision",
-    modelType: "vision"
+    modelType: "vision",
+    acceptsFiles: {
+      images: true,
+      documents: false,
+      text: false
+    }
   },
   {
     id: "code-explainer",
@@ -48,7 +68,12 @@ export const tools: ToolConfig[] = [
     placeholder: "Paste your code here...",
     buttonText: "Explain Code",
     category: "Development",
-    modelType: "text"
+    modelType: "text",
+    acceptsFiles: {
+      images: true,
+      documents: true,
+      text: true
+    }
   },
   {
     id: "seo-meta-description-generator",
@@ -58,7 +83,12 @@ export const tools: ToolConfig[] = [
     placeholder: "Enter your page title or content summary...",
     buttonText: "Generate Meta Description",
     category: "SEO & Marketing",
-    modelType: "text"
+    modelType: "text",
+    acceptsFiles: {
+      images: false,
+      documents: true,
+      text: true
+    }
   },
   {
     id: "article-outliner",
@@ -68,7 +98,12 @@ export const tools: ToolConfig[] = [
     placeholder: "Enter your article topic or main idea...",
     buttonText: "Generate Outline",
     category: "Content Writing",
-    modelType: "text"
+    modelType: "text",
+    acceptsFiles: {
+      images: false,
+      documents: true,
+      text: true
+    }
   },
   {
     id: "product-description-generator",
@@ -78,7 +113,12 @@ export const tools: ToolConfig[] = [
     placeholder: "Enter product name and key features...",
     buttonText: "Generate Description",
     category: "E-commerce",
-    modelType: "text"
+    modelType: "text",
+    acceptsFiles: {
+      images: true,
+      documents: true,
+      text: true
+    }
   },
   {
     id: "linkedin-post-generator",
@@ -88,7 +128,12 @@ export const tools: ToolConfig[] = [
     placeholder: "Enter your post topic or key message...",
     buttonText: "Generate Post",
     category: "Social Media",
-    modelType: "text"
+    modelType: "text",
+    acceptsFiles: {
+      images: true,
+      documents: true,
+      text: true
+    }
   },
   {
     id: "facebook-ads-copy-generator",
@@ -98,7 +143,12 @@ export const tools: ToolConfig[] = [
     placeholder: "Enter product/service and target audience...",
     buttonText: "Generate Ad Copy",
     category: "Advertising",
-    modelType: "text"
+    modelType: "text",
+    acceptsFiles: {
+      images: true,
+      documents: true,
+      text: true
+    }
   },
   {
     id: "resume-analyzer",
@@ -108,7 +158,12 @@ export const tools: ToolConfig[] = [
     placeholder: "Paste resume text here...",
     buttonText: "Analyze Resume",
     category: "Career",
-    modelType: "text"
+    modelType: "text",
+    acceptsFiles: {
+      images: true,
+      documents: true,
+      text: true
+    }
   },
   {
     id: "text-summarizer",
@@ -118,7 +173,12 @@ export const tools: ToolConfig[] = [
     placeholder: "Paste your long text here...",
     buttonText: "Summarize Text",
     category: "Productivity",
-    modelType: "text"
+    modelType: "text",
+    acceptsFiles: {
+      images: false,
+      documents: true,
+      text: true
+    }
   },
   {
     id: "email-rewriter",
@@ -128,7 +188,12 @@ export const tools: ToolConfig[] = [
     placeholder: "Paste your email here...",
     buttonText: "Rewrite Email",
     category: "Communication",
-    modelType: "text"
+    modelType: "text",
+    acceptsFiles: {
+      images: false,
+      documents: true,
+      text: true
+    }
   },
   {
     id: "grammar-corrector",
@@ -138,7 +203,12 @@ export const tools: ToolConfig[] = [
     placeholder: "Paste your text here...",
     buttonText: "Check Grammar",
     category: "Writing",
-    modelType: "text"
+    modelType: "text",
+    acceptsFiles: {
+      images: true,
+      documents: true,
+      text: true
+    }
   },
   {
     id: "cold-email-generator",
@@ -148,7 +218,12 @@ export const tools: ToolConfig[] = [
     placeholder: "Describe recipient, purpose, and what you offer...",
     buttonText: "Generate Cold Email",
     category: "Sales",
-    modelType: "text"
+    modelType: "text",
+    acceptsFiles: {
+      images: false,
+      documents: true,
+      text: true
+    }
   },
   {
     id: "plagiarism-checker",
@@ -158,7 +233,12 @@ export const tools: ToolConfig[] = [
     placeholder: "Paste content to check...",
     buttonText: "Check Plagiarism",
     category: "Writing",
-    modelType: "text"
+    modelType: "text",
+    acceptsFiles: {
+      images: false,
+      documents: true,
+      text: true
+    }
   }
 ];
 

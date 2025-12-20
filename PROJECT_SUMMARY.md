@@ -2,11 +2,54 @@
 
 ## 🎯 What We Built
 
-A production-ready Next.js application with **15 AI-powered tools** organized across 9 categories, a complete CRUD system, and **comprehensive user authentication** with advanced features.
+A production-ready Next.js application with **15 AI-powered tools** organized across 9 categories, **file upload support for all tools**, a complete CRUD system, and **comprehensive user authentication** with advanced features.
 
 ---
 
-## 🔐 Authentication System (NEW!)
+## 📁 File Upload System (NEW!)
+
+### Features Implemented
+1. **Universal File Support**
+   - All 15 tools support file uploads
+   - Images: JPG, PNG, GIF, WebP, BMP (up to 10MB)
+   - Documents: PDF, Word (.doc, .docx)
+   - Text files: TXT, CSV, MD, HTML, code files (.js, .ts, .py, etc.)
+
+2. **Drag & Drop Interface**
+   - Modern file upload experience
+   - Visual feedback during drag operations
+   - File validation and error handling
+   - Instant file preview for images
+
+3. **Smart Processing**
+   - Images: Automatic base64 conversion + vision model processing
+   - Documents: Text extraction from PDFs and Word files
+   - Code files: Direct text reading for code analysis
+   - Flexible: Use files alone or combine with text input
+
+4. **File Preview & Management**
+   - Thumbnail preview for images
+   - File type icons for documents
+   - File size and type display
+   - Easy file removal and replacement
+
+5. **Backend Integration**
+   - API accepts imageUrl, fileName, fileType parameters
+   - Automatic model selection (vision for images, text for documents)
+   - File metadata saved in user history
+   - Secure client-side processing
+
+### Technical Implementation
+- **Frontend:** `components/ToolForm.tsx` - Complete file upload UI
+- **Processing:** `lib/file-processor.ts` - File validation and conversion utilities
+- **API:** `app/api/tools/[tool]/route.ts` - File handling and model selection
+- **Database:** `models/SavedOutput.ts` - fileName field for tracking uploads
+
+📖 **[Full File Upload Guide](./FILE_UPLOAD_FEATURE.md)**
+
+---
+
+## 🔐 Authentication System
 
 ### Features Implemented
 1. **User Registration & Login**

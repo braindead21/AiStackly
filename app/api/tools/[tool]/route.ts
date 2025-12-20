@@ -33,7 +33,7 @@ export async function POST(
     }
 
     const body = await req.json();
-    const { input, imageUrl } = body;
+    const { input, imageUrl, fileName, fileType } = body;
 
     if (!input || typeof input !== 'string' || input.trim().length === 0) {
       console.error('[POST /api/tools/:tool] Missing or invalid input');
@@ -44,8 +44,12 @@ export async function POST(
     }
 
     console.log(`[POST /api/tools/:tool] Processing ${tool} with input length:`, input.length);
+    if (fileName) {
+      console.log(`[POST /api/tools/:tool] File uploaded: ${fileName} (${fileType || 'image'})`);
+    }
 
     // Build message content - support for vision models if image URL provided
+    let modelToUse = "llama-3.1-8b-instant";
     const messageContent = imageUrl 
       ? [
           { type: "text" as const, text: config.prompt + input },
@@ -53,8 +57,13 @@ export async function POST(
         ]
       : config.prompt + input;
 
+    // Use vision model for images
+    if (imageUrl) {
+      modelToUse = "meta-llama/llama-4-scout-17b-16e-instruct";
+    }
+
     const response = await groq.chat.completions.create({
-      model: imageUrl ? "meta-llama/llama-4-scout-17b-16e-instruct" : "llama-3.1-8b-instant",
+      model: modelToUse,
       messages: [
         {
           role: "user",
@@ -83,6 +92,7 @@ export async function POST(
           toolName: config.title,
           input: input.trim(),
           imageUrl: imageUrl || undefined,
+          fileName: fileName || undefined,
           result: result || "",
           tokensUsed: {
             promptTokens: usage.prompt_tokens,
@@ -170,6 +180,7 @@ export async function POST(
 
     return NextResponse.json({ 
       success: true,
+      output: result,
       result,
       usage: usage ? {
         promptTokens: usage.prompt_tokens,

@@ -5,11 +5,14 @@
 export interface ToolRequest {
   input: string;
   imageUrl?: string;
+  fileName?: string;
+  fileType?: string;
 }
 
 export interface ToolResponse {
   success: boolean;
   result?: string;
+  output?: string;
   error?: string;
   usage?: {
     promptTokens: number;
@@ -40,7 +43,8 @@ export async function callTool(toolId: string, request: ToolRequest): Promise<To
 
     return {
       success: true,
-      result: data.result,
+      result: data.result || data.output,
+      output: data.output || data.result,
       usage: data.usage,
     };
   } catch (error) {

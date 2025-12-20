@@ -16,6 +16,16 @@ A modern Next.js application featuring 15+ free AI tools powered by Groq's ultra
 
 📖 **[Full Authentication Guide](./AUTH_SETUP.md)**
 
+### File Upload Support (NEW! 🎉)
+- **Upload Images, Documents & Files** - Direct file upload for all tools
+- **Drag & Drop Interface** - Modern, intuitive file handling
+- **Multiple Formats** - Images (JPG, PNG, GIF), PDFs, Word docs, Text files, Code files
+- **Smart Processing** - Automatic vision model for images, text extraction for documents
+- **File Preview** - Visual previews and file information
+- **10MB File Limit** - Support for large documents and high-quality images
+
+📖 **[File Upload Documentation](./FILE_UPLOAD_FEATURE.md)**
+
 ### AI Tools Collection (15 Tools Across 9 Categories)
 
 #### Social Media & Marketing
@@ -48,11 +58,13 @@ A modern Next.js application featuring 15+ free AI tools powered by Groq's ultra
 - **AI Image Describer** - Analyze and describe images using vision models
 
 ### Additional Features
+- **File Upload System** - Direct upload of images, documents, and text files to all tools
 - **Items CRUD System** - Full MongoDB-backed REST API with frontend UI
 - **Dark Mode Support** - System-aware theme switching
 - **Responsive Design** - Mobile-first Tailwind CSS implementation
 - **Toast Notifications** - User feedback system
 - **Category Organization** - Tools grouped by use case
+- **Drag & Drop** - Modern file upload interface with previews
 
 ## 🛠️ Tech Stack
 

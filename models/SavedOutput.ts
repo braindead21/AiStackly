@@ -7,6 +7,7 @@ export interface ISavedOutput {
   toolName: string;
   input: string;
   imageUrl?: string;
+  fileName?: string;
   result: string;
   tokensUsed: {
     promptTokens: number;
@@ -39,6 +40,10 @@ const SavedOutputSchema = new Schema<ISavedOutput>(
       required: true,
     },
     imageUrl: {
+      type: String,
+      default: null,
+    },
+    fileName: {
       type: String,
       default: null,
     },
